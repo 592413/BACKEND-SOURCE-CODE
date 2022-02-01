@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper=false)
 public class CommonAepsRequestDto extends BaseAepsRequestDto {
 	
-	private Long apiId;
+	private Long clientId;
 	
 
 }

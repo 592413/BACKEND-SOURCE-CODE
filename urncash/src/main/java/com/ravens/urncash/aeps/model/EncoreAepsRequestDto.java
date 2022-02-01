@@ -9,9 +9,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper=true)
 @Builder
-public class EncoreAepsRequestDto extends BaseAepsRequestDto {
+public class EncoreAepsRequestDto {
 	
 	private String date;
 	private String time;
@@ -20,5 +19,6 @@ public class EncoreAepsRequestDto extends BaseAepsRequestDto {
 	private String Username;
 	private String Password;
 	private String AID;
+	private CommonAepsRequestDto commonAepsRequestDto;
 
 }
