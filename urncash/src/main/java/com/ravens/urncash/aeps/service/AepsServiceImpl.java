@@ -72,7 +72,7 @@ public class AepsServiceImpl implements AepsService  {
 		String date=GenerateRandomNumber.getCurrentDate();
 		String time=GenerateRandomNumber.getCurrentTime();
 		
-		new EncoreAepsRequestDto();
+		//Creating Encore Aeps Request For WebService Call
 		EncoreAepsRequestDto aepsRequestDto=EncoreAepsRequestDto.builder()
 				.AID(aepsUser.getAgentCode())
 				.date(date)
@@ -87,4 +87,22 @@ public class AepsServiceImpl implements AepsService  {
 		
 	}
 
+	
+	/*
+	 * 
+	 * 
+	 * 
+	 * 
+	 * RestTemplate restTemplate = new RestTemplate();
+    final String baseUrl = "http://localhost:"+randomServerPort+"/employees/";
+    URI uri = new URI(baseUrl);
+    Employee employee = new Employee(null, "Adam", "Gilly", "test@email.com");
+     
+    HttpHeaders headers = new HttpHeaders();
+    headers.set("X-COM-PERSIST", "true");    
+    headers.set("X-COM-LOCATION", "USA");      
+ 
+    HttpEntity<Employee> request = new HttpEntity<>(employee, headers);
+     
+    ResponseEntity<String> result = restTemplate.postForEntity(uri, request, String.class);*/
 }
