@@ -11,7 +11,7 @@ public class ApiWebClient {
 	
 	private String host;
 	
-	public final String API_PATH="/api/v1/beer/";
+	public final String API_PATH="/api/v1/rest/";
 	
 	private final RestTemplate restTemplate;
 	

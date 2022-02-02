@@ -6,6 +6,9 @@ import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 @Configuration
 public class DefaultConfig {
 	
@@ -19,6 +22,12 @@ public class DefaultConfig {
 		
 		
 		return mapper;
+	}
+	
+	@Bean
+	public Gson getGson() {
+		 Gson gson = new GsonBuilder().create(); 
+		 return gson;
 	}
 
 }
