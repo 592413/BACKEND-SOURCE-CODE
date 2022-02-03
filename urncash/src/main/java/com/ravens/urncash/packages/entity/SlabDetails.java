@@ -1,4 +1,4 @@
-package com.ravens.urncash.api.entity;
+package com.ravens.urncash.packages.entity;
 
 import java.util.Set;
 
@@ -11,28 +11,31 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.ravens.urncash.business.entity.ServiceMaster;
 import com.ravens.urncash.user.entity.ClientDetails;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name="api_master")
-public class ApiMaster {
-
+@Table(name="slab_details")
+public class SlabDetails {
+	
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long apiId;
-	
-	private String apiName;
+	private Long slabDetailsId;
 	
 	@ManyToOne
-	@JoinColumn(name="serviceId", nullable=false)
-	private ServiceMaster service;
+	@JoinColumn(name="slabId", nullable=false)
+	private SlabMaster slab;
 	
-	private int activeStatus;
+	@ManyToMany(mappedBy = "slabDetailsList")
+	Set<PackageDetails> packageDetailsList;
 	
-	@ManyToMany(mappedBy = "apiMasterList")
-	Set<ClientDetails> clientList;
+	
+	private Long lowerSlab;
+	
+	private Long upperSlab;
+	
+
 }

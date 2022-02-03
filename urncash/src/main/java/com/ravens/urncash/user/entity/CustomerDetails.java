@@ -7,10 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.ravens.urncash.api.entity.ApiMaster;
+import com.ravens.urncash.packages.entity.PackageMaster;
+import com.ravens.urncash.packages.entity.SlabDetails;
 
 import lombok.Data;
 
@@ -27,4 +31,10 @@ public class CustomerDetails {
 	 @JoinColumn(name="clientId", nullable=false)
 	 private ClientDetails client;
 
+	 @ManyToMany
+		@JoinTable(
+		  name = "CustomerDetails_PackageMaster", 
+		  joinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "customerId"), 
+		  inverseJoinColumns = @JoinColumn(name = "package_id",referencedColumnName = "packageId"))
+		 Set<PackageMaster> packageMasterList;
 }

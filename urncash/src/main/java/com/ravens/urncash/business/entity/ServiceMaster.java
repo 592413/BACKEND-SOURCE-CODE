@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.ravens.urncash.api.entity.ApiMaster;
 import com.ravens.urncash.packages.entity.PackageMaster;
 
 import lombok.Data;
@@ -21,6 +22,9 @@ public class ServiceMaster {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long serviceId;
+	
+	@OneToMany(mappedBy="service")
+    private Set<ApiMaster> apiList;
 	
 	@OneToMany(mappedBy="service")
     private Set<PackageMaster> packageList;
