@@ -7,34 +7,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
+import com.ravens.urncash.api.entity.ApiClientMaster;
+import com.ravens.urncash.user.entity.CustomerDetails;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name="package_details")
-public class PackageDetails {
-	
+@Table(name="package_customer")
+public class CustomerPackage {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long packageDetailsId;
+	private Long id;
 	
 	@ManyToOne
-	@JoinColumn(name="packageId", nullable=false)
+	@JoinColumn(name="package_id",referencedColumnName = "packageId", nullable=false)
 	private PackageMaster packageMaster;
-
 	
-	private Double charge;
+	@ManyToOne
+	@JoinColumn(name="customer_id",referencedColumnName = "customerId", nullable=false)
+	private CustomerDetails customer;
 	
-	private String chargeType;
 	
-	private Double commision;
-	
-	private String commisionType;
 }

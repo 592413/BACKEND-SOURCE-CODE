@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.ravens.urncash.api.entity.ApiClientMaster;
 import com.ravens.urncash.api.entity.ApiMaster;
 import com.ravens.urncash.business.entity.ServiceMaster;
 import com.ravens.urncash.user.entity.CustomerDetails;
@@ -26,19 +27,12 @@ public class PackageMaster {
 	@Id
 	private Long id;
 	
-	@ManyToOne
-	@JoinColumn(name="service_id", referencedColumnName = "serviceId",  nullable=false)
-	private ServiceMaster service;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "api_id", referencedColumnName = "apiId",nullable=false)
-    private ApiMaster api;
-	
 	@OneToMany(mappedBy="packageMaster")
     private Set<PackageDetails> packageDetails;
 	
-	@ManyToMany(mappedBy = "packageMasterList")
-	Set<CustomerDetails> customerDetailsList;
+	@ManyToOne
+	@JoinColumn(name="business_id",referencedColumnName = "businessId", nullable=false)
+	private ApiClientMaster apiClient;
 	
 	
 	private String packageId;

@@ -29,10 +29,6 @@ public class SlabDetails {
 	@JoinColumn(name="slabId", nullable=false)
 	private SlabMaster slab;
 	
-	@ManyToMany(mappedBy = "slabDetailsList")
-	Set<PackageDetails> packageDetailsList;
-	
-	
 	private Long lowerSlab;
 	
 	private Long upperSlab;

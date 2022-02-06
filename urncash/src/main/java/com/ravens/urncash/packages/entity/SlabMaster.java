@@ -13,6 +13,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.ravens.urncash.api.entity.ApiClientMaster;
 import com.ravens.urncash.api.entity.ApiMaster;
 import com.ravens.urncash.user.entity.ClientDetails;
 
@@ -28,12 +29,8 @@ public class SlabMaster {
 	private Long slabId;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "api_id", referencedColumnName = "apiId")
-    private ApiMaster api;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "client_id", referencedColumnName = "clientId")
-    private ClientDetails client;
+    @JoinColumn(name = "business_id", referencedColumnName = "businessId")
+    private ApiClientMaster apiClient;
 	
 	@OneToMany(mappedBy="slab")
     private Set<SlabDetails> slabDetailsList;
