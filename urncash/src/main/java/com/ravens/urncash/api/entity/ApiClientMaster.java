@@ -7,10 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.ravens.urncash.business.entity.ServiceMaster;
+import com.ravens.urncash.packages.entity.PackageMaster;
 import com.ravens.urncash.packages.entity.SlabMaster;
 import com.ravens.urncash.user.entity.ClientDetails;
 
@@ -39,6 +41,9 @@ public class ApiClientMaster {
 	
 	@OneToOne (mappedBy="apiClient")
     private SlabMaster slab;
+	
+	@OneToMany (mappedBy="apiClient")
+    private PackageMaster packageMaster;
 	
 	private String businessId;
 	

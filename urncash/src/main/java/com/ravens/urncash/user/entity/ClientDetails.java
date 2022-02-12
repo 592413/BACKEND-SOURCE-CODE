@@ -25,13 +25,13 @@ public class ClientDetails {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long clientId;
 	
-	@ManyToMany
-	@JoinTable(
-	  name = "ClientDetails_ApiMaster", 
-	  joinColumns = @JoinColumn(name = "client_Id", referencedColumnName = "clientId"), 
-	  inverseJoinColumns = @JoinColumn(name = "api_Id",referencedColumnName = "apiId"))
-	 Set<ApiMaster> apiMasterList;
-	
+//	@ManyToMany
+//	@JoinTable(
+//	  name = "ClientDetails_ApiMaster", 
+//	  joinColumns = @JoinColumn(name = "client_Id", referencedColumnName = "clientId"), 
+//	  inverseJoinColumns = @JoinColumn(name = "api_Id",referencedColumnName = "apiId"))
+//	 Set<ApiMaster> apiMasterList;
+//	
 	@OneToMany(mappedBy="client")
     private Set<CustomerDetails> customerList;
 

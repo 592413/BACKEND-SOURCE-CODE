@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -28,6 +29,10 @@ public class PackageDetails {
 	@ManyToOne
 	@JoinColumn(name="packageId", nullable=false)
 	private PackageMaster packageMaster;
+	
+	@OneToOne
+	@JoinColumn(name="slabDetailsId", nullable=false)
+	private SlabDetails slabDetails;
 
 	
 	private Double charge;

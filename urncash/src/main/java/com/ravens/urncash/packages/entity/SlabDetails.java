@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.ravens.urncash.user.entity.ClientDetails;
@@ -29,9 +31,12 @@ public class SlabDetails {
 	@JoinColumn(name="slabId", nullable=false)
 	private SlabMaster slab;
 	
-	private Long lowerSlab;
+	@OneToOne(mappedBy="slabDetails")
+    private PackageDetails packageDetail;
 	
-	private Long upperSlab;
+	private Double lowerSlab;
+	
+	private Double upperSlab;
 	
 
 }
