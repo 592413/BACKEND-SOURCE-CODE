@@ -6,6 +6,6 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import guru.springframework.msscbeerservice.domain.Beer;
 
-public interface BeerRepository extends PagingAndSortingRepository<Beer, UUID>{
+public interface BeerRepository extends PagingAndSortingRepository<Beer, UUID> {
 
 }
